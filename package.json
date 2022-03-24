@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
+    "start": "node ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yupin A",
@@ -13,5 +13,8 @@
   "dependencies": {
     "express": "^4.17.3",
     "i": "^0.3.7"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13"
   }
 }

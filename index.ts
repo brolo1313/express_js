@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import { userRouter } from "./users/users.js";
 
 const host = "127.0.0.1";
@@ -14,7 +14,12 @@ app.get("/hello", (req, res) => {
     throw new Error('Error')
 });
 
-app.use('/users', userRouter)
+app.use('/users', userRouter);
+
+app.use((err:Error, req:Request, res:Response, next:NextFunction) => {
+    console.log(err.message);
+    res.status(401).send(err.message);
+})
 
 app.listen(port, () => {
   console.log(`Сервер запущен на ${host} : ${port} `);
